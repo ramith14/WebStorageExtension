@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Storage Explorer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <h1>Storage Explorer</h1>
+        <p id="siteLabel">Active website</p>
+      </div>
+      <button id="refreshBtn" class="icon-button" type="button" title="Refresh data" aria-label="Refresh data">
+        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <section class="summary" aria-label="Storage summary">
+      <div>
+        <span class="summary-value" id="totalCount">0</span>
+        <span class="summary-label">items</span>
+      </div>
+      <div>
+        <span class="summary-value" id="totalSize">0 B</span>
+        <span class="summary-label">stored</span>
+      </div>
+      <div>
+        <span class="summary-value" id="quotaSize">N/A</span>
+        <span class="summary-label">quota used</span>
+      </div>
+    </section>
+
+    <label class="search">
+      <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input id="searchInput" type="search" placeholder="Search keys, values, or types">
+    </label>
+
+    <nav class="tabs" aria-label="Storage type filters">
+      <button class="tab is-active" type="button" data-filter="all">All</button>
+      <button class="tab" type="button" data-filter="localStorage">Local</button>
+      <button class="tab" type="button" data-filter="sessionStorage">Session</button>
+      <button class="tab" type="button" data-filter="cookie">Cookies</button>
+    </nav>
+
+    <section id="status" class="status" hidden></section>
+
+    <section class="table-wrap" aria-label="Stored items">
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Type</th>
+            <th>Size</th>
+          </tr>
+        </thead>
+        <tbody id="itemsTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

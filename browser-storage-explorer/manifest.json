@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Storage Explorer",
+  "description": "Explore localStorage, sessionStorage, cookies, and storage usage for the active website.",
+  "version": "1.0.0",
+  "permissions": ["activeTab", "cookies", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Storage Explorer",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
